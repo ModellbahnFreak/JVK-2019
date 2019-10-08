@@ -13,6 +13,7 @@ import de.unistuttgart.informatik.fius.icge.simulation.Position;
 import de.unistuttgart.informatik.fius.icge.simulation.entity.Inventory;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * A child class of Neo. This class is to be implemented by the students.
@@ -121,12 +122,9 @@ public class MyNeo extends Neo {
         if (portals.size() > 0) {
             Portal first = portals.get(0);
             Portal destination = null;
-            List<Portal> allPortals = this.getSimulation().getPlayfield().getAllEntitiesOfType(Portal.class, true);
-            for (Portal p : allPortals) {
-                if (first.isOppositePortal(p)) {
-                    destination = p;
-                }
-            }
+            Portal[] properPortals = getSimulation().getPlayfield().getAllEntitiesOfType(Portal.class, true).stream()
+                    .filter(portal -> portal.isOppositePortal(first)).toArray(Portal[]::new);
+            destination = properPortals[new Random().nextInt(properPortals.length)];
             if (destination != null) {
                 this.getPlayfield().moveEntity(this, new Position(destination.getPosition().getX(), destination.getPosition().getY()));
             }
