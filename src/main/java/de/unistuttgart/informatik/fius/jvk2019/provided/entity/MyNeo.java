@@ -40,9 +40,6 @@ public class MyNeo extends Neo {
      */
     public MyNeo(int starterCoins) {
         setCoinsInWallet(starterCoins);
-        for (int i = 0; i < starterCoins; i++) {
-            this.getInventory().add(new Coin());
-        }
     }
     
     /**
