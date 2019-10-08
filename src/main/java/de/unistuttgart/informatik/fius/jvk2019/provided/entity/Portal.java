@@ -1,9 +1,11 @@
 package de.unistuttgart.informatik.fius.jvk2019.provided.entity;
 
+import de.unistuttgart.informatik.fius.icge.simulation.entity.BasicEntity;
+import de.unistuttgart.informatik.fius.icge.simulation.entity.CollectableEntity;
 import de.unistuttgart.informatik.fius.jvk2019.Texture;
 import de.unistuttgart.informatik.fius.jvk2019.provided.Color;
 
-public class Portal {
+public class Portal  extends BasicEntity implements CollectableEntity {
     private Color color;
 
     /**
