@@ -9,6 +9,8 @@
  */
 package de.unistuttgart.informatik.fius.jvk2019.solutions;
 
+import de.unistuttgart.informatik.fius.jvk2019.provided.entity.PhoneBooth;
+import de.unistuttgart.informatik.fius.jvk2019.provided.entity.Pill;
 import de.unistuttgart.informatik.fius.jvk2019.tasks.Task3_3;
 
 /**
@@ -19,8 +21,17 @@ public class Solution3_3a extends Task3_3 {
 
     @Override
     public final void solve() {
-        // TODO Auto-generated method stub
-        
+        while (!neo.isOnPhoneBooth()) {
+            while (!isOnPill() && !neo.isOnPhoneBooth()) {
+                neo.move();
+            }
+            neo.collectOnField();
+            neo.turnClockWise();
+        }
+    }
+
+    private boolean isOnPill() {
+        return sim.getPlayfield().getEntitiesOfTypeAt(neo.getPosition(), Pill.class, true).size() > 0;
     }
     
     

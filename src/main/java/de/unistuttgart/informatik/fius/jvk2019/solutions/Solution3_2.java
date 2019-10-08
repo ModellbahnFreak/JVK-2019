@@ -44,7 +44,6 @@ public class Solution3_2 extends Task3_2 {
             neo.move();
         }
         Logger.simulation.println("Solve end");
-        // TODO 3.2.b) ,c) and d) write your code for exercise 
     }
 
     @Override

@@ -10,6 +10,7 @@
 package de.unistuttgart.informatik.fius.jvk2019.provided.entity;
 
 import de.unistuttgart.informatik.fius.icge.simulation.Position;
+import de.unistuttgart.informatik.fius.icge.simulation.entity.CollectableEntity;
 import de.unistuttgart.informatik.fius.icge.simulation.inspection.InspectionAttribute;
 import de.unistuttgart.informatik.fius.icge.simulation.inspection.InspectionMethod;
 import de.unistuttgart.informatik.fius.jvk2019.Texture;
@@ -41,6 +42,16 @@ public class Neo extends Human {
     public void collectCoin() {
         if (!this.canCollectCoin()) throw new NoCoinException();
         this.collect(this.getCurrentlyCollectableEntities(Coin.class, true).get(0));
+    }
+
+    /**
+     * Collects all entities which are on the field Neo is currently standing on
+     */
+    public void collectOnField() {
+        List<CollectableEntity> currentlyCollectableEntities = getCurrentlyCollectableEntities(CollectableEntity.class, true);
+        for (CollectableEntity c : currentlyCollectableEntities) {
+            collect(c);
+        }
     }
     
     /**
