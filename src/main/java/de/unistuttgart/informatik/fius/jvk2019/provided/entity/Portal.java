@@ -43,4 +43,8 @@ public class Portal  extends BasicEntity implements CollectableEntity {
         }
         return Texture.REDPILL.getHandle();
     }
+
+    public boolean isOppositePortal(Portal p) {
+        return p.color == this.color && p != this;
+    }
 }
