@@ -34,7 +34,7 @@ public class MyNeo extends Neo {
     }
     
     /**
-     * Creates a new MyNeo that has a certaint amount of coins.
+     * Creates a new MyNeo with a certain amount of coins in his wallet.
      * 
      * @param starterCoins
      *     coin count that this neo starts with
@@ -52,8 +52,7 @@ public class MyNeo extends Neo {
     }
 
     /**
-     * Command um Neo gegen den Uhrzeigersinn zu drehen.
-     * Gelöst indem, sich Neo dreimal im Uhrzeigersinn dreht
+     * Turns Neo counter clockwise. Operation is to be implemented in MyNeo in Task 2.1.a)
      */
     public void turnCounterClockwise() {
         this.turnClockWise();
