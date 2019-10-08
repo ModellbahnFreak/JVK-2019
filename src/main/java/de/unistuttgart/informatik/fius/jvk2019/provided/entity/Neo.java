@@ -9,11 +9,14 @@
  */
 package de.unistuttgart.informatik.fius.jvk2019.provided.entity;
 
+import de.unistuttgart.informatik.fius.icge.simulation.Position;
 import de.unistuttgart.informatik.fius.icge.simulation.inspection.InspectionAttribute;
 import de.unistuttgart.informatik.fius.icge.simulation.inspection.InspectionMethod;
 import de.unistuttgart.informatik.fius.jvk2019.Texture;
 import de.unistuttgart.informatik.fius.jvk2019.provided.exceptions.NeoIsBrokeException;
 import de.unistuttgart.informatik.fius.jvk2019.provided.exceptions.NoCoinException;
+
+import java.util.List;
 
 
 /**
@@ -49,14 +52,30 @@ public class Neo extends Human {
     @InspectionMethod()
     public void dropCoin() {
         if (!this.canDropCoin()) throw new NeoIsBrokeException();
-        this.drop(this.getCurrentlyDroppableEntities(Coin.class, true).get(0));
-        sendCoinThroughPortal();
+        Coin dropped = this.getCurrentlyDroppableEntities(Coin.class, true).get(0);
+        this.drop(dropped);
+        sendCoinThroughPortal(dropped);
     }
 
     /**
      * Checks if there is a portal and if so, sends the coin through
+     * @param dropped The coin which should be dropped through the portal
      */
-    private void sendCoinThroughPortal() {
+    private void sendCoinThroughPortal(Coin dropped) {
+        List<Portal> portals = this.getSimulation().getPlayfield().getEntitiesOfTypeAt(this.getPosition(), Portal.class, true);
+        if (portals.size() > 0) {
+            Portal first = portals.get(0);
+            Portal destination = null;
+            List<Portal> allPortals = this.getSimulation().getPlayfield().getAllEntitiesOfType(Portal.class, true);
+            for (Portal p : allPortals) {
+                if (first.isOppositePortal(p)) {
+                    destination = p;
+                }
+            }
+            if (destination != null) {
+                this.getPlayfield().moveEntity(dropped, new Position(destination.getPosition().getX(), destination.getPosition().getY()));
+            }
+        }
     }
 
     /**

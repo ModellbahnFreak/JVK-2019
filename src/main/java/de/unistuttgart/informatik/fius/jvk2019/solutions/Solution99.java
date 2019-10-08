@@ -30,6 +30,7 @@ public class Solution99 extends Task99 {
         }
         player.move();
         player.move();
+        player.dropCoin();
         player.move();
         for (Portal p : currentlyCollectableEntities) {
             player.drop(p);
@@ -37,9 +38,20 @@ public class Solution99 extends Task99 {
         player.move();
         player.turnAround();
         player.move();
-
-        while (player.canMove()) {
-            player.move();
+        currentlyCollectableEntities = player.getCurrentlyCollectableEntities(Portal.class, true);
+        for (Portal p : currentlyCollectableEntities) {
+            player.collect(p);
         }
+        player.move();
+        player.move();
+        player.turnAround();
+        player.move();
+        player.move();
+        player.move();
+        player.move();
+        player.collectCoin();
+        /*while (player.canMove()) {
+            player.move();
+        }*/
     }
 }

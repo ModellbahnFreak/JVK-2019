@@ -13,7 +13,7 @@ public abstract class Task99 extends TaskWithHelperFunctions {
     @Override
     public void prepare(Simulation sim) {
         super.prepare(sim);
-        this.player = new MyNeo();
+        this.player = new MyNeo(10);
         this.spawnEntity(this.player, 0, 0);
         this.spawnEntity(new Portal(Color.BLUE), 2, 0);
         this.spawnEntity(new Portal(Color.BLUE), 2, 5);
