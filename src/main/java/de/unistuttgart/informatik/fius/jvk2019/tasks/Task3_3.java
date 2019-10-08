@@ -74,13 +74,13 @@ public abstract class Task3_3 extends TaskWithHelperFunctions {
         x+=getRandom();
         playfield.addEntity(new Position(x, y), pillsToCollect.get(0));
         //second step
-        y-=getRandom();
+        y+=getRandom();
         playfield.addEntity(new Position(x, y), pillsToCollect.get(1));
         //third step
         x-=getRandom();
         playfield.addEntity(new Position(x, y), pillsToCollect.get(2));
         //last step
-        y+=getRandom();
+        y-=getRandom();
         playfield.addEntity(new Position(x, y), pillsToCollect.get(3));
         x+=getRandom();
         playfield.addEntity(new Position(x, y), new PhoneBooth());
