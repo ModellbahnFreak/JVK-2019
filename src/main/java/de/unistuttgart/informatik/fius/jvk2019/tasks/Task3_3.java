@@ -9,6 +9,7 @@
  */
 package de.unistuttgart.informatik.fius.jvk2019.tasks;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -16,6 +17,7 @@ import de.unistuttgart.informatik.fius.icge.simulation.Direction;
 import de.unistuttgart.informatik.fius.icge.simulation.Playfield;
 import de.unistuttgart.informatik.fius.icge.simulation.Position;
 import de.unistuttgart.informatik.fius.icge.simulation.Simulation;
+import de.unistuttgart.informatik.fius.icge.simulation.actions.EntityCollectAction;
 import de.unistuttgart.informatik.fius.jvk2019.provided.entity.Coin;
 import de.unistuttgart.informatik.fius.jvk2019.provided.Color;
 import de.unistuttgart.informatik.fius.jvk2019.provided.entity.Neo;
@@ -38,6 +40,8 @@ public abstract class Task3_3 extends TaskWithHelperFunctions {
     protected Neo neo;
     
     private boolean flag1;
+
+    private List<Pill> pillsToCollect = new ArrayList<>();
     
     private Position goal;
     
@@ -58,22 +62,26 @@ public abstract class Task3_3 extends TaskWithHelperFunctions {
      *     the playfield on which the path is created
      */
     private final void generatePath(final Playfield playfield) {
+        //generate all instances of Pills which have to be collected and store them in the list
+        for (int i = 0; i < 4; i++) {
+            pillsToCollect.add(new Pill(Color.RED));
+        }
         //neo will start at (5,5)
         //coord for placement
         int x = 5;
         int y = 5;
         //first steps
         x+=getRandom();
-        playfield.addEntity(new Position(x, y), new Pill(Color.RED));
+        playfield.addEntity(new Position(x, y), pillsToCollect.get(0));
         //second step
         y-=getRandom();
-        playfield.addEntity(new Position(x, y), new Pill(Color.RED));
+        playfield.addEntity(new Position(x, y), pillsToCollect.get(1));
         //third step
         x-=getRandom();
-        playfield.addEntity(new Position(x, y), new Pill(Color.RED));
+        playfield.addEntity(new Position(x, y), pillsToCollect.get(2));
         //last step
         y+=getRandom();
-        playfield.addEntity(new Position(x, y), new Pill(Color.RED));
+        playfield.addEntity(new Position(x, y), pillsToCollect.get(3));
         x+=getRandom();
         playfield.addEntity(new Position(x, y), new PhoneBooth());
         
@@ -82,7 +90,8 @@ public abstract class Task3_3 extends TaskWithHelperFunctions {
     private int getRandom() {
         return (int) (Math.random()*10)+2;
     }
-    
+
+
     private Pill peakPill() {
         java.util.List<Pill> pills= sim.getPlayfield().getEntitiesOfTypeAt(neo.getPosition(), Pill.class, true);
         if(pills.size()>0) {
@@ -95,7 +104,22 @@ public abstract class Task3_3 extends TaskWithHelperFunctions {
     
     @Override
     public boolean verify() {
-        return this.flag1;
+        if (!neo.isOnPhoneBooth()) return false;
+        if (neo.getInventory().get(Pill.class, false).size() != pillsToCollect.size()) return false;
+
+        List<EntityCollectAction> collects = this.sim.getActionLog().getActionsOfType(EntityCollectAction.class, false);
+        if (collects.size() != pillsToCollect.size()) return false;
+
+        for (EntityCollectAction c : collects) {
+            int pos = pillsToCollect.indexOf(c.getCollectedEntity());
+            if (pos < 0) {
+                return false;
+            } else {
+                pillsToCollect.remove(pos);
+            }
+        }
+
+        return true;
     }
     
 }
