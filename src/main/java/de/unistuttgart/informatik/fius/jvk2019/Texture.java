@@ -41,7 +41,13 @@ public enum Texture {
     /** red pill texture */
     BLUEPILL("pills/pill_blue.png"),
     /** blue pill texture */
-    REDPILL("pills/pill_red.png");
+    REDPILL("pills/pill_red.png"),
+
+    REDPORTAL("portals/portalRed.png"),
+
+    BLUEPORTAL("portals/portalRed.png"),
+
+    GREENPORTAL("portals/portalRed.png");
     
     //for directional textures this is east
     private final TextureInfo info;
