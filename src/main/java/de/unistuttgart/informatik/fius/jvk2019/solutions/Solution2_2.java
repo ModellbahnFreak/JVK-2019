@@ -38,7 +38,10 @@ public class Solution2_2 extends Task2_2 {
      */
     @Override
     public void solve() {
-        //TODO: solve Task 2.2 d); let myNeo walk forward 5 times and let him drop a coin on every field
-        
+        this.myNeo.dropCoin();
+        for (int i = 0; i < 5; i++) {
+            this.myNeo.move();
+            this.myNeo.dropCoin();
+        }
     }
 }
