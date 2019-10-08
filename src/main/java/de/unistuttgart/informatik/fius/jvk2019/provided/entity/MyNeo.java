@@ -18,7 +18,8 @@ import java.util.stream.Collectors;
 /**
  * A child class of Neo. This class is to be implemented by the students.
  *
- * TODO: 2.2.b),c) add your author Tag and another one
+ * @author GR
+ * @version b00.12.34
  */
 public class MyNeo extends Neo {
 

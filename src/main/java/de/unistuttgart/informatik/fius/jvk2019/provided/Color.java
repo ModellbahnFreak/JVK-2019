@@ -10,7 +10,7 @@
 package de.unistuttgart.informatik.fius.jvk2019.provided;
 
 /**
- * TODO: The colors of the Pill
+ * The colors of the Pill
  * @author Tim-Julian Ehret
  */
 public enum Color {

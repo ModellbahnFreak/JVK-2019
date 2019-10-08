@@ -12,7 +12,7 @@ package de.unistuttgart.informatik.fius.jvk2019.solutions;
 import de.unistuttgart.informatik.fius.jvk2019.tasks.Task3_1;
 
 /**
- * TODO: The solution to exercise 1 on worksheet 3
+ *
  * @author paulesn
  */
 public class Solution3_1 extends Task3_1 {

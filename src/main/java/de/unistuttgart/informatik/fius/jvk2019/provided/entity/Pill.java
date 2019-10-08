@@ -19,7 +19,6 @@ import de.unistuttgart.informatik.fius.jvk2019.Texture;
 import de.unistuttgart.informatik.fius.jvk2019.provided.Color;
 
 /**
- * TODO: Description
  * @author Tim-Julian Ehret, paulesn
  */
 public class Pill extends BasicEntity implements CollectableEntity{
@@ -44,7 +43,6 @@ public class Pill extends BasicEntity implements CollectableEntity{
 
     @Override
     protected int getZPosition() {
-        // TODO Auto-generated method stub
         return 0;
     }
 

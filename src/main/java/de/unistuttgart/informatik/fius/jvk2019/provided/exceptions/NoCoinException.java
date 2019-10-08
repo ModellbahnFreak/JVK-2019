@@ -12,7 +12,6 @@ package de.unistuttgart.informatik.fius.jvk2019.provided.exceptions;
 import de.unistuttgart.informatik.fius.icge.simulation.exception.SimulationExcpetion;
 
 /**
- * TODO: Description
  * @author Tim-Julian Ehret
  */
 public class NoCoinException extends SimulationExcpetion{

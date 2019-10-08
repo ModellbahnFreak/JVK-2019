@@ -1,7 +1,6 @@
 /*
  * ICGE-Example-Mario
  *
- * TODO: Project Beschreibung
  *
  * @author Tim Neumann
  * @version 1.0.0
