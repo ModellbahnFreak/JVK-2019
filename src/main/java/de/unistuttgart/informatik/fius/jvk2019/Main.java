@@ -14,6 +14,7 @@ import de.unistuttgart.informatik.fius.icge.simulation.SimulationHostFactory;
 import de.unistuttgart.informatik.fius.icge.simulation.entity.EntityTypeRegistry;
 import de.unistuttgart.informatik.fius.icge.simulation.tasks.TaskRegistry;
 import de.unistuttgart.informatik.fius.icge.ui.TextureRegistry;
+import de.unistuttgart.informatik.fius.jvk2019.provided.entity.*;
 import de.unistuttgart.informatik.fius.jvk2019.solutions.Solution0_1;
 import de.unistuttgart.informatik.fius.jvk2019.solutions.Solution0_2;
 import de.unistuttgart.informatik.fius.jvk2019.solutions.Solution0_3;
@@ -27,13 +28,6 @@ import de.unistuttgart.informatik.fius.jvk2019.solutions.Solution3_3a;
 import de.unistuttgart.informatik.fius.jvk2019.solutions.Solution3_3b;
 import de.unistuttgart.informatik.fius.jvk2019.solutions.Solution3_4;
 import de.unistuttgart.informatik.fius.jvk2019.provided.Color;
-import de.unistuttgart.informatik.fius.jvk2019.provided.entity.Coin;
-import de.unistuttgart.informatik.fius.jvk2019.provided.entity.Morpheus;
-import de.unistuttgart.informatik.fius.jvk2019.provided.entity.MyNeo;
-import de.unistuttgart.informatik.fius.jvk2019.provided.entity.Neo;
-import de.unistuttgart.informatik.fius.jvk2019.provided.entity.PhoneBooth;
-import de.unistuttgart.informatik.fius.jvk2019.provided.entity.Wall;
-import de.unistuttgart.informatik.fius.jvk2019.provided.entity.Pill;
 import de.unistuttgart.informatik.fius.jvk2019.solutions.*;
 
 
@@ -70,12 +64,16 @@ public class Main {
         etr.registerEntityType("Red Pill", Texture.REDPILL.getHandle(), () -> new Pill(Color.RED));
         etr.registerEntityType("Blue Pill", Texture.BLUEPILL.getHandle(), () -> new Pill(Color.BLUE));
         etr.registerEntityType("Phone", Texture.PHONEBOOTH.getHandle(), PhoneBooth.class);
-        //etr.registerEntityType("Neo", Texture.NEO.getHandle(), Neo.class);
-        //etr.registerEntityType("My Neo", Texture.NEO.getHandle(), MyNeo.class);
-        //etr.registerEntityType("Morpheus", Texture.MORPHEUS.getHandle(), Morpheus.class);
+        /*etr.registerEntityType("Neo", Texture.NEO.getHandle(), Neo.class);
+        etr.registerEntityType("My Neo", Texture.NEO.getHandle(), MyNeo.class);
+        etr.registerEntityType("Morpheus", Texture.MORPHEUS.getHandle(), Morpheus.class);*/
+        etr.registerEntityType("Blue Portal", Texture.BLUEPORTAL.getHandle(), () -> new Portal(Color.BLUE));
+        etr.registerEntityType("Red Portal", Texture.REDPORTAL.getHandle(), () -> new Portal(Color.RED));
+        etr.registerEntityType("Green Portal", Texture.GREENPORTAL.getHandle(), () -> new Portal(Color.GREEN));
     }
     
     private static void prepareTasks(TaskRegistry tr) {
+        tr.registerTask("Testing Task", new Solution99());
         tr.registerTask("Task0 a)", new Solution0_1());
         tr.registerTask("Task0 b)", new Solution0_2());
         tr.registerTask("Task0 c)", new Solution0_3());
