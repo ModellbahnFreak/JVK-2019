@@ -50,8 +50,15 @@ public class Neo extends Human {
     public void dropCoin() {
         if (!this.canDropCoin()) throw new NeoIsBrokeException();
         this.drop(this.getCurrentlyDroppableEntities(Coin.class, true).get(0));
+        sendCoinThroughPortal();
     }
-    
+
+    /**
+     * Checks if there is a portal and if so, sends the coin through
+     */
+    private void sendCoinThroughPortal() {
+    }
+
     /**
      * 
      * @return whether Neo can drop a coin
