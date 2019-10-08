@@ -10,8 +10,11 @@
 package de.unistuttgart.informatik.fius.jvk2019.solutions;
 
 import de.unistuttgart.informatik.fius.icge.simulation.Simulation;
+import de.unistuttgart.informatik.fius.jvk2019.provided.entity.Coin;
 import de.unistuttgart.informatik.fius.jvk2019.provided.entity.Neo;
 import de.unistuttgart.informatik.fius.jvk2019.tasks.Task1;
+
+import java.util.List;
 
 
 /**
@@ -30,10 +33,18 @@ public class Solution1 extends Task1 {
     
     @Override
     public void solve() {
-        // do AB1 task 6 here
-        // Move Neo to the field with the telephone.
-        // you only need to use the Operations this.player.move(); and this.player.turnClockWise(); to complete the task
-        this.player.move();
+        while(!this.goal.getPosition().equals(this.player.getPosition())) {
+            while (player.canMove()) {
+                player.move();
+                List<Coin> currentlyCollectableEntities = player.getCurrentlyCollectableEntities(Coin.class, true);
+                for (Coin c : currentlyCollectableEntities) {
+                    player.collect(c);
+                }
+            }
+            while (!player.canMove()) {
+                player.turnClockWise();
+            }
+        }
     }
     
 }

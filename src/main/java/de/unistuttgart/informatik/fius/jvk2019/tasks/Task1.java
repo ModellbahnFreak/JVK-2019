@@ -10,11 +10,7 @@
 package de.unistuttgart.informatik.fius.jvk2019.tasks;
 
 import de.unistuttgart.informatik.fius.icge.simulation.Simulation;
-import de.unistuttgart.informatik.fius.jvk2019.provided.entity.Neo;
-import de.unistuttgart.informatik.fius.jvk2019.provided.entity.PhoneBooth;
-import de.unistuttgart.informatik.fius.jvk2019.provided.entity.RequirementChecks;
-import de.unistuttgart.informatik.fius.jvk2019.provided.entity.StandardPhoneBoothProgram;
-import de.unistuttgart.informatik.fius.jvk2019.provided.entity.Wall;
+import de.unistuttgart.informatik.fius.jvk2019.provided.entity.*;
 
 
 /**
@@ -39,15 +35,43 @@ public abstract class Task1 extends TaskWithHelperFunctions {
         super.prepare(sim);
         
         this.generateCage(3, 3);
-        
+
+        this.spawnEntity(new Wall(), 0, -1);
+        this.spawnEntity(new Wall(), 1, -1);
+        this.spawnEntity(new Wall(), 2, -1);
+        this.spawnEntity(new Wall(), 4, -1);
+        this.spawnEntity(new Wall(), -1, 0);
+        this.spawnEntity(new Wall(), 3, 0);
+        this.spawnEntity(new Wall(), 5, 0);
         this.spawnEntity(new Wall(), 0, 1);
-        this.spawnEntity(new Wall(), 0, 2);
         this.spawnEntity(new Wall(), 1, 1);
+        this.spawnEntity(new Wall(), 3, 1);
+        this.spawnEntity(new Wall(), 5, 1);
         this.spawnEntity(new Wall(), 1, 2);
-        
+        this.spawnEntity(new Wall(), 3, 2);
+        this.spawnEntity(new Wall(), 5, 2);
+        this.spawnEntity(new Wall(), 1, 3);
+        this.spawnEntity(new Wall(), 3, 3);
+        this.spawnEntity(new Wall(), 5, 3);
+        this.spawnEntity(new Wall(), 1, 4);
+        this.spawnEntity(new Wall(), 5, 4);
+        this.spawnEntity(new Wall(), 2, 5);
+        this.spawnEntity(new Wall(), 3, 5);
+        this.spawnEntity(new Wall(), 5, 5);
+        this.spawnEntity(new Wall(), 3, 6);
+        this.spawnEntity(new Wall(), 5, 6);
+        this.spawnEntity(new Wall(), 3, 7);
+        this.spawnEntity(new Wall(), 5, 7);
+        this.spawnEntity(new Wall(), 4, 8);
+
+        this.spawnEntity(new Coin(), 4, 2);
+        this.spawnEntity(new Coin(), 4, 6);
+        this.spawnEntity(new Coin(), 4, 6);
+
+
         this.goal = new PhoneBooth();
         this.goal.setRequirementsChecker(() -> true);
-        this.spawnEntity(this.goal, 2, 2);
+        this.spawnEntity(this.goal, 4, 0);
         
         String goalChecker = this.registerProgram(
                 "goalChecker", new StandardPhoneBoothProgram(RequirementChecks.testEntitiesOnSameField(() -> this.player, () -> this.goal))
