@@ -20,8 +20,9 @@ import java.util.*;
  * TODO: 2.2.b),c) add your author Tag and another one
  */
 public class MyNeo extends Neo {
-    
-    //TODO: 2.5.a) Add the missing attributes
+
+    private int age = 0;
+    private int amountSteps = 0;
     private List<Portal> passedPortals = new ArrayList<Portal>();
     
     /**
