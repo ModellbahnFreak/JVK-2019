@@ -33,7 +33,7 @@ public class Solution0_1 extends Task0 {
         // simple solve method directly calling the entity methods
         this.player.move();
         this.player.move();
-        // do AB1 task 5 here
+        this.player.turnClockWise();
         this.player.move();
         this.player.move();
         if (this.player.canMove()) {
