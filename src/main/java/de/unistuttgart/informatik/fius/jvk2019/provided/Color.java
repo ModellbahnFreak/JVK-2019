@@ -15,5 +15,6 @@ package de.unistuttgart.informatik.fius.jvk2019.provided;
  */
 public enum Color {
     RED,
-    BLUE
+    BLUE,
+    GREEN
 }
