@@ -26,6 +26,7 @@ import de.unistuttgart.informatik.fius.icge.simulation.entity.program.EntityProg
 import de.unistuttgart.informatik.fius.icge.simulation.entity.program.EntityProgramRunner;
 import de.unistuttgart.informatik.fius.icge.simulation.entity.program.RunningProgramInfo;
 import de.unistuttgart.informatik.fius.icge.simulation.tasks.Task;
+import de.unistuttgart.informatik.fius.jvk2019.provided.entity.Coin;
 import de.unistuttgart.informatik.fius.jvk2019.provided.entity.Wall;
 
 
@@ -166,7 +167,6 @@ public abstract class TaskWithHelperFunctions implements Task {
     }
     
     protected int getCoinCount(GreedyEntity entity) {
-        // TODO implementation
-        return 0;
+        return entity.getInventory().get(Coin.class, true).size();
     }
 }
