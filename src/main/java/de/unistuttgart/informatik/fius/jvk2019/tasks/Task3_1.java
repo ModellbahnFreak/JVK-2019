@@ -23,8 +23,6 @@ public abstract class Task3_1 extends TaskWithHelperFunctions {
     @Override
     public void prepare(Simulation arg0) {
         super.prepare(sim);
-        // TODO Auto-generated method stub
-        
     }
     
     @Override
