@@ -81,7 +81,7 @@ public class Solution3_1 extends Task3_1 {
      */
     @Override
     public Boolean exV(int value) {
-        if(value == 0) {//TODO exercise 1 (i)
+        if(!(value > 0 && value < 10)) {//TODO exercise 1 (i)
             return true;
         }
         return false;
@@ -93,10 +93,7 @@ public class Solution3_1 extends Task3_1 {
      */
     @Override
     public Boolean exVI(int value) {
-        if(value == 0) {//TODO exercise 1 (i)
-            return true;
-        }
-        return false;
+        return (value % 2 == 0);
     }
 
     
