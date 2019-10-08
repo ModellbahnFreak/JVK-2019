@@ -42,7 +42,7 @@ public class Solution3_1 extends Task3_1 {
      */
     @Override
     public Boolean exII(int value) {
-        if(value <= 15) {//TODO exercise 1 (i)
+        if(value <= 15) {
             return true;
         }
         return false;
@@ -55,7 +55,7 @@ public class Solution3_1 extends Task3_1 {
      */
     @Override
     public Boolean exIII(int value) {
-        if(value != 22) {//TODO exercise 1 (i)
+        if(value != 22) {
             return true;
         }
         return false;
@@ -68,7 +68,7 @@ public class Solution3_1 extends Task3_1 {
      */
     @Override
     public Boolean exIV(int value) {
-        if(value >= 1 && value <= 9) {//TODO exercise 1 (i)
+        if(value >= 1 && value <= 9) {
             return true;
         }
         return false;
@@ -81,7 +81,7 @@ public class Solution3_1 extends Task3_1 {
      */
     @Override
     public Boolean exV(int value) {
-        if(!(value > 0 && value < 10)) {//TODO exercise 1 (i)
+        if(!(value > 0 && value < 10)) {
             return true;
         }
         return false;
