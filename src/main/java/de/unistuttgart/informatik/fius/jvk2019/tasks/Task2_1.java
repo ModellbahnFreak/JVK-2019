@@ -52,9 +52,9 @@ public abstract class Task2_1 extends TaskWithHelperFunctions {
         
         this.myNeo.turnAround();
         if (lookingDirection.clockWiseNext() != this.myNeo.getLookingDirection()) return false;
-        
+        int bal = this.myNeo.getCoinsInWallet();
         this.myNeo.gainCoins(12);
-        if (this.myNeo.getBalance() != 24) return false;
+        if (this.myNeo.getBalance() != bal + 24) return false;
         
         return true;
     }
