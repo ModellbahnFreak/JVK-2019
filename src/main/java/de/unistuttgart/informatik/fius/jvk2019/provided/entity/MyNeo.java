@@ -13,7 +13,6 @@ import de.unistuttgart.informatik.fius.icge.simulation.entity.Inventory;
 
 import java.util.*;
 
-
 /**
  * A child class of Neo. This class is to be implemented by the students.
  *
