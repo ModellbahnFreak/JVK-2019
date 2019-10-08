@@ -65,13 +65,14 @@ public abstract class Task3_2 extends TaskWithHelperFunctions {
     @Override
     public boolean verify() {
 
+       if (!neo.isOnPhoneBooth()) {return false;}
+
         this.neo = new Neo(); //resetting looking direction to EAST
         turnRight();
         if(this.neo.getLookingDirection() != Direction.SOUTH) return false;
         turnRight();
         if(this.neo.getLookingDirection() != Direction.WEST) return false;
 
-        //Logger.simulation.println("Verify2");
-        return neo.isOnPhoneBooth();
+        return true;
     }
 }
