@@ -21,21 +21,7 @@ public class Solution3_2 extends Task3_2 {
     
     @Override
     protected void turnRight() {
-        Direction dir = neo.getLookingDirection();
-        switch (dir) {
-            case EAST:
-                neo.setLookingDirectionByString("SOUTH");
-                break;
-            case SOUTH:
-                neo.setLookingDirectionByString("WEST");
-                break;
-            case WEST:
-                neo.setLookingDirectionByString("NOTRH");
-                break;
-            case NORTH:
-                neo.setLookingDirectionByString("EAST");
-                break;
-        }
+        neo.turnClockWise();
     }
 
     @Override
@@ -43,7 +29,7 @@ public class Solution3_2 extends Task3_2 {
         while(!neo.isOnPhoneBooth()) {
             neo.move();
         }
-        Logger.simulation.println("Solve end");
+        Logger.out.println("Solve end");
     }
 
     @Override

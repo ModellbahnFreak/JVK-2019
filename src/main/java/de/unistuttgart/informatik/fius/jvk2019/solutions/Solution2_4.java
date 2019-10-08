@@ -30,8 +30,8 @@ public class Solution2_4 extends Task2_4 {
         super.prepare(sim);
         this.playerRich = new MyNeo();
         this.playerPoor = new MyNeo();
-        Logger.simulation.println("Poor" + playerPoor);
-        Logger.simulation.println("Rich: " + playerRich);
+        Logger.out.println("Poor" + playerPoor);
+        Logger.out.println("Rich: " + playerRich);
         this.player3 = new MyNeo();
         this.player4 = new MyNeo();
         this.spawnEntity(this.playerRich, 2, 0);
@@ -45,8 +45,8 @@ public class Solution2_4 extends Task2_4 {
      * 
      */
     public void solve() {
-        Logger.simulation.println("Rich neo has " + playerRich.getCoinsInWallet());
-        Logger.simulation.println("Poor neo has " + playerPoor.getCoinsInWallet());
+        Logger.out.println("Rich neo has " + playerRich.getCoinsInWallet());
+        Logger.out.println("Poor neo has " + playerPoor.getCoinsInWallet());
 
         this.playerPoor.turnAround();
         this.playerRich.turnAround();
@@ -66,8 +66,8 @@ public class Solution2_4 extends Task2_4 {
             playerPoor.collect(c);
         }
 
-        Logger.simulation.println("Rich neo has " + playerRich.getCoinsInWallet());
-        Logger.simulation.println("Poor neo has " + playerPoor.getCoinsInWallet());
+        Logger.out.println("Rich neo has " + playerRich.getCoinsInWallet());
+        Logger.out.println("Poor neo has " + playerPoor.getCoinsInWallet());
 
         this.playerRich.setAddress("(5,5)");
 
