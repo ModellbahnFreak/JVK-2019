@@ -9,6 +9,7 @@
  */
 package de.unistuttgart.informatik.fius.jvk2019.tasks;
 
+import de.unistuttgart.informatik.fius.icge.log.Logger;
 import de.unistuttgart.informatik.fius.icge.simulation.Direction;
 import de.unistuttgart.informatik.fius.icge.simulation.Position;
 import de.unistuttgart.informatik.fius.icge.simulation.Simulation;
@@ -39,6 +40,7 @@ public abstract class Task3_2 extends TaskWithHelperFunctions {
         super.prepare(sim);
 
         this.neo = new Neo();
+        sim.getPlayfield().addEntity(new Position(1,1), neo);
         this.changeToD();
         SimulationUtilities.createRectangleWall(sim, 1, 15, 0, 0);
         if (!this.boothsDestroyed) {
@@ -61,14 +63,15 @@ public abstract class Task3_2 extends TaskWithHelperFunctions {
     public abstract void solve();
 
     @Override
-    public boolean verify() {        
+    public boolean verify() {
+
         this.neo = new Neo(); //resetting looking direction to EAST
         turnRight();
         if(this.neo.getLookingDirection() != Direction.SOUTH) return false;
         turnRight();
         if(this.neo.getLookingDirection() != Direction.WEST) return false;
-        
-        
+
+        //Logger.simulation.println("Verify2");
         return neo.isOnPhoneBooth();
     }
 }

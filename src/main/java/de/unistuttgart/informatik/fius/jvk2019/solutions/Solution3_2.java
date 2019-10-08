@@ -9,6 +9,8 @@
  */
 package de.unistuttgart.informatik.fius.jvk2019.solutions;
 
+import de.unistuttgart.informatik.fius.icge.log.Logger;
+import de.unistuttgart.informatik.fius.icge.simulation.Direction;
 import de.unistuttgart.informatik.fius.jvk2019.tasks.Task3_2;
 
 
@@ -19,11 +21,29 @@ public class Solution3_2 extends Task3_2 {
     
     @Override
     protected void turnRight() {
-        // TODO 3.2.a) implement turning to the right with a for looü 
+        Direction dir = neo.getLookingDirection();
+        switch (dir) {
+            case EAST:
+                neo.setLookingDirectionByString("SOUTH");
+                break;
+            case SOUTH:
+                neo.setLookingDirectionByString("WEST");
+                break;
+            case WEST:
+                neo.setLookingDirectionByString("NOTRH");
+                break;
+            case NORTH:
+                neo.setLookingDirectionByString("EAST");
+                break;
+        }
     }
 
     @Override
     public void solve() {
+        while(!neo.isOnPhoneBooth()) {
+            neo.move();
+        }
+        Logger.simulation.println("Solve end");
         // TODO 3.2.b) ,c) and d) write your code for exercise 
     }
 
