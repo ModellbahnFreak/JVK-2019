@@ -45,9 +45,9 @@ public enum Texture {
 
     REDPORTAL("portals/portalRed.png"),
 
-    BLUEPORTAL("portals/portalRed.png"),
+    BLUEPORTAL("portals/portalBlue.png"),
 
-    GREENPORTAL("portals/portalRed.png");
+    GREENPORTAL("portals/portalGreen.png");
     
     //for directional textures this is east
     private final TextureInfo info;
