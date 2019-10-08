@@ -9,9 +9,13 @@
  */
 package de.unistuttgart.informatik.fius.jvk2019.solutions;
 
+import de.unistuttgart.informatik.fius.icge.log.Logger;
 import de.unistuttgart.informatik.fius.icge.simulation.Simulation;
+import de.unistuttgart.informatik.fius.jvk2019.provided.entity.Coin;
 import de.unistuttgart.informatik.fius.jvk2019.provided.entity.MyNeo;
 import de.unistuttgart.informatik.fius.jvk2019.tasks.Task2_4;
+
+import java.util.List;
 
 
 /**
@@ -21,23 +25,54 @@ import de.unistuttgart.informatik.fius.jvk2019.tasks.Task2_4;
  */
 public class Solution2_4 extends Task2_4 {
     
-    // TODO 2.5 f) attributes
-    
     @Override
     public void prepare(Simulation sim) {
         super.prepare(sim);
-        // TODO 2.5 f) attribute initialization
+        this.playerRich = new MyNeo();
+        this.playerPoor = new MyNeo();
+        Logger.simulation.println("Poor" + playerPoor);
+        Logger.simulation.println("Rich: " + playerRich);
+        this.player3 = new MyNeo();
+        this.player4 = new MyNeo();
+        this.spawnEntity(this.playerRich, 2, 0);
+        this.spawnEntity(this.playerPoor, 0, 0);
+        this.spawnEntity(this.player3, 0, 3);
+        this.spawnEntity(this.player4, 1, 3);
+        this.playerRich.setCoinsInWallet(1000);
     }
     
     /**
      * 
      */
     public void solve() {
-        // TODO: 2.4.a) Create 2 MyNeo-Objects and let them turn 360°
-        
-        // TODO: 2.4.b) Create richNeo
-        
-        // TODO: 2.4.c) Create poorNeo and let him pick up two coins of rich Neo      
-        
+        Logger.simulation.println("Rich neo has " + playerRich.getCoinsInWallet());
+        Logger.simulation.println("Poor neo has " + playerPoor.getCoinsInWallet());
+
+        this.playerPoor.turnAround();
+        this.playerRich.turnAround();
+        this.playerPoor.turnAround();
+        this.playerRich.turnAround();
+        this.playerRich.dropCoin();
+        this.playerRich.dropCoin();
+
+        this.playerRich.move();
+        this.playerRich.move();
+
+        this.playerPoor.move();
+        this.playerPoor.move();
+
+        List<Coin> currentlyCollectableEntities = playerPoor.getCurrentlyCollectableEntities(Coin.class, true);
+        for (Coin c : currentlyCollectableEntities) {
+            playerPoor.collect(c);
+        }
+
+        Logger.simulation.println("Rich neo has " + playerRich.getCoinsInWallet());
+        Logger.simulation.println("Poor neo has " + playerPoor.getCoinsInWallet());
+
+        this.playerRich.setAddress("(5,5)");
+
+        this.playerRich.move();
+
+        this.playerRich.move(5,0);
     }
 }

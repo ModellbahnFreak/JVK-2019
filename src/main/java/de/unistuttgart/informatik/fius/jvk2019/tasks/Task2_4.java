@@ -29,7 +29,12 @@ import de.unistuttgart.informatik.fius.jvk2019.provided.entity.MyNeo;
  * @author Tim-Julian Ehret
  */
 public abstract class Task2_4 extends TaskWithHelperFunctions {
-    
+
+    protected MyNeo playerRich;
+    protected MyNeo playerPoor;
+    protected MyNeo player3;
+    protected MyNeo player4;
+
     @Override
     public void prepare(Simulation sim) {
         super.prepare(sim);
