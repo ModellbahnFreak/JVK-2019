@@ -21,13 +21,13 @@ public class Solution3_2 extends Task3_2 {
     
     @Override
     protected void turnLeft() {
-        neo.turnCounterClockwise();
+        myNeo.turnCounterClockwise();
     }
 
     @Override
     public void solve() {
-        while(!neo.isOnPhoneBooth()) {
-            neo.move();
+        while(!myNeo.isOnPhoneBooth()) {
+            myNeo.move();
         }
         Logger.out.println("Solve end");
     }
