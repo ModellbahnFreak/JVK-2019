@@ -10,6 +10,7 @@
 package de.unistuttgart.informatik.fius.jvk2019.solutions;
 
 import de.unistuttgart.informatik.fius.jvk2019.provided.entity.PhoneBooth;
+import de.unistuttgart.informatik.fius.jvk2019.provided.Color;
 import de.unistuttgart.informatik.fius.jvk2019.provided.entity.Pill;
 import de.unistuttgart.informatik.fius.jvk2019.tasks.Task3_3;
 

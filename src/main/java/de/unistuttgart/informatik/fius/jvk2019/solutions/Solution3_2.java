@@ -20,8 +20,8 @@ import de.unistuttgart.informatik.fius.jvk2019.tasks.Task3_2;
 public class Solution3_2 extends Task3_2 {
     
     @Override
-    protected void turnRight() {
-        neo.turnClockWise();
+    protected void turnLeft() {
+        neo.turnCounterClockwise();
     }
 
     @Override

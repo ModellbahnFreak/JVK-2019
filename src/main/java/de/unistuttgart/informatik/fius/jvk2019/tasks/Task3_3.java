@@ -84,6 +84,18 @@ public abstract class Task3_3 extends TaskWithHelperFunctions {
         playfield.addEntity(new Position(x, y), pillsToCollect.get(3));
         x+=getRandom();
         playfield.addEntity(new Position(x, y), new PhoneBooth());
+        /*//first steps
+        playfield.addEntity(new Position(8, 5), new Pill(Color.RED));
+        //second step
+        playfield.addEntity(new Position(8, 8), new Pill(Color.RED));
+        //third step
+        playfield.addEntity(new Position(5, 8), new Pill(Color.RED));
+        playfield.addEntity(new Position(5, 7), new PhoneBooth());
+        this.spawnEntity(new Wall(), 4, 7);
+        this.spawnEntity(new Wall(), 4, 6);
+        this.spawnEntity(new Wall(), 5, 6);
+        this.spawnEntity(new Wall(), 6, 6);
+        this.spawnEntity(new Wall(), 6, 7);*/
         
     }
     
@@ -120,6 +132,7 @@ public abstract class Task3_3 extends TaskWithHelperFunctions {
         }
 
         return true;
+        //return this.neo.getPosition().equals(new Position(5, 7));
     }
     
 }

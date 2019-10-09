@@ -11,6 +11,7 @@ package de.unistuttgart.informatik.fius.jvk2019.solutions;
 
 import de.unistuttgart.informatik.fius.jvk2019.tasks.Task3_1;
 
+
 /**
  *
  * @author paulesn
@@ -24,6 +25,7 @@ public class Solution3_1 extends Task3_1 {
     
     /**
      * The solution to exercise 1 (i) on worksheet 3
+     * 
      * @param value
      * @return true if the value was in the given parameters
      */
@@ -37,6 +39,7 @@ public class Solution3_1 extends Task3_1 {
     
     /**
      * The solution to exercise 1 (ii) on worksheet 3
+     * 
      * @param value
      * @return true if the value was in the given parameters
      */
@@ -50,6 +53,7 @@ public class Solution3_1 extends Task3_1 {
     
     /**
      * The solution to exercise 1 (iii) on worksheet 3
+     * 
      * @param value
      * @return true if the value was in the given parameters
      */
@@ -63,6 +67,7 @@ public class Solution3_1 extends Task3_1 {
     
     /**
      * The solution to exercise 1 (iv) on worksheet 3
+     * 
      * @param value
      * @return true if the value was in the given parameters
      */
@@ -76,6 +81,7 @@ public class Solution3_1 extends Task3_1 {
     
     /**
      * The solution to exercise 1 (v) on worksheet 3
+     * 
      * @param value
      * @return true if the value was in the given parameters
      */
@@ -86,8 +92,10 @@ public class Solution3_1 extends Task3_1 {
         }
         return false;
     }
+    
     /**
      * The solution to exercise 1 (vi) on worksheet 3
+     * 
      * @param value
      * @return true if the value was in the given parameters
      */
@@ -95,6 +103,5 @@ public class Solution3_1 extends Task3_1 {
     public Boolean exVI(int value) {
         return (value % 2 == 0);
     }
-
     
 }
