@@ -181,27 +181,30 @@ public class GravitySimulation {
                         else {
                             //move
                             int dif = lastSolidY - e.getPosition().getY() - 1;
-                            if (dif <= getMaxFallLength()) {
-                                //check if it can position on the same field
-                                if (type == null) {
-                                    type = e.getClass();
-                                    placedOnField = 1;
-                                }
-                                else if (type == e.getClass() && placedOnField < 9) {
-                                    placedOnField++;
+                            if (dif > 0) {
+                                if (dif <= getMaxFallLength()) {
+                                    //check if it can position on the same field
+                                    if (type == null) {
+                                        type = e.getClass();
+                                        placedOnField = 1;
+                                    }
+                                    else if (type == e.getClass() && placedOnField < 9) {
+                                        placedOnField++;
+                                    }
+                                    else {
+                                        dif--;
+                                        lastSolidY--;
+                                        type = e.getClass();
+                                        placedOnField = 1;
+                                    }
+                                    if (dif > 0) multiMovableEntities.add(new MultiMovableEntity(e, tickStart, dif, false));
                                 }
                                 else {
-                                    dif--;
-                                    lastSolidY--;
-                                    type = e.getClass();
-                                    placedOnField = 1;
+                                    dif = getMaxFallLength();
+                                    multiMovableEntities.add(new MultiMovableEntity(e, tickStart, dif, true));
                                 }
-                                multiMovableEntities.add(new MultiMovableEntity(e, tickStart, dif, false));
                             }
-                            else {
-                                dif = getMaxFallLength();
-                                multiMovableEntities.add(new MultiMovableEntity(e, tickStart, dif, true));
-                            }
+
                             maxFields = Math.max(dif, maxFields);
                         }
                     }

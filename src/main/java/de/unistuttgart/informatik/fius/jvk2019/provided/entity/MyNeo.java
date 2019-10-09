@@ -117,7 +117,7 @@ public class MyNeo extends Neo {
     /**
      * Looks if tere is a portal on the currend Field. If there is, a Portal of the corresponding color is searched. If found, Neo is teleported through to the other side
      */
-    protected void goThroughPortalIfAvailable() {
+    public void goThroughPortalIfAvailable() {
         List<Portal> portals = this.getSimulation().getPlayfield().getEntitiesOfTypeAt(this.getPosition(), Portal.class, true);
         if (portals.size() > 0) {
             Portal first = portals.get(0);
