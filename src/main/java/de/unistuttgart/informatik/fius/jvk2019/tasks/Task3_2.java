@@ -76,10 +76,7 @@ public abstract class Task3_2 extends TaskWithHelperFunctions {
         if(this.myNeo.getLookingDirection() != Direction.NORTH) return false;
         turnLeft();
         if(this.myNeo.getLookingDirection() != Direction.WEST) return false;
-        
-        
-        if(this.myNeo.getPosition().equals(new Position(15,1)) && this.boothsDestroyed) {
-            return true;
-        }
+
+        return true;
     }
 }
