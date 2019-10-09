@@ -11,6 +11,8 @@ package de.unistuttgart.informatik.fius.jvk2019.provided.entity;
 
 import de.unistuttgart.informatik.fius.jvk2019.Texture;
 
+import java.io.PrintStream;
+
 
 /**
  * Class for Morpheus.
@@ -23,5 +25,9 @@ public class Morpheus extends Human {
     protected String getTextureHandle() {
         return Texture.MORPHEUS.getHandle(this.getLookingDirection());
     }
-    
+
+    @Override
+    public void serialize(PrintStream printStream) {
+        printStream.print("Morpheus;" + this.getLookingDirectionString());
+    }
 }

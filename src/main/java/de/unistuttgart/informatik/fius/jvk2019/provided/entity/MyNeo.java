@@ -12,6 +12,7 @@ package de.unistuttgart.informatik.fius.jvk2019.provided.entity;
 import de.unistuttgart.informatik.fius.icge.simulation.Position;
 import de.unistuttgart.informatik.fius.icge.simulation.entity.Inventory;
 
+import java.io.PrintStream;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -210,5 +211,9 @@ public class MyNeo extends Neo {
     public int getAge() {
         return age;
     }
-    
+
+    @Override
+    public void serialize(PrintStream ps) {
+        ps.print("MyNeo;" + this.getLookingDirectionString());
+    }
 }

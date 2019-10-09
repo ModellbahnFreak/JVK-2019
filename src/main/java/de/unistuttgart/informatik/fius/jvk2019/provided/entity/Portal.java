@@ -5,6 +5,8 @@ import de.unistuttgart.informatik.fius.icge.simulation.entity.CollectableEntity;
 import de.unistuttgart.informatik.fius.jvk2019.Texture;
 import de.unistuttgart.informatik.fius.jvk2019.provided.Color;
 
+import java.io.PrintStream;
+
 public class Portal  extends BasicEntity implements CollectableEntity {
     private Color color;
 
@@ -46,5 +48,21 @@ public class Portal  extends BasicEntity implements CollectableEntity {
 
     public boolean isOppositePortal(Portal p) {
         return p.color == this.color && p != this;
+    }
+
+    @Override
+    public void serialize(PrintStream printStream) {
+        switch (color) {
+            case BLUE:
+                printStream.print("Pill;BLUE");
+                break;
+            case GREEN:
+                printStream.print("Pill;GREEN");
+                break;
+            case RED:
+            default:
+                printStream.print("Pill;RED");
+                break;
+        }
     }
 }

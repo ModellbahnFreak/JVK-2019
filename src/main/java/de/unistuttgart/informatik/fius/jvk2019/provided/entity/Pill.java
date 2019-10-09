@@ -18,6 +18,8 @@ import de.unistuttgart.informatik.fius.icge.ui.Drawable;
 import de.unistuttgart.informatik.fius.jvk2019.Texture;
 import de.unistuttgart.informatik.fius.jvk2019.provided.Color;
 
+import java.io.PrintStream;
+
 /**
  * @author Tim-Julian Ehret, paulesn
  */
@@ -57,5 +59,17 @@ public class Pill extends BasicEntity implements CollectableEntity{
         }
         return Texture.REDPILL.getHandle();
     }
-    
+
+    @Override
+    public void serialize(PrintStream printStream) {
+        switch (color) {
+            case BLUE:
+                printStream.print("Pill;BLUE");
+                break;
+            case RED:
+            default:
+                printStream.print("Pill;RED");
+                break;
+        }
+    }
 }

@@ -7,6 +7,7 @@ import de.unistuttgart.informatik.fius.icge.ui.AnimatedDrawable;
 import de.unistuttgart.informatik.fius.icge.ui.Drawable;
 import de.unistuttgart.informatik.fius.jvk2019.provided.entity.Wall;
 
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -91,6 +92,11 @@ public class GravitySimulation {
         protected int getZPosition() {
             return 0;
         }
+
+        @Override
+        public void serialize(PrintStream printStream) {
+            entity.serialize(printStream);
+        }
     }
 
     /**the Simulation on which the gravity actions are performed on*/
@@ -153,6 +159,11 @@ public class GravitySimulation {
                 @Override
                 public Position getPosition() {
                     return new Position(Integer.MAX_VALUE, 0);
+                }
+
+                @Override
+                public void serialize(PrintStream printStream) {
+
                 }
             });
             //debug
@@ -235,6 +246,7 @@ public class GravitySimulation {
             } finally {
                 endOfOperation2.complete((Object)null);
             }
+
         }
 
     }

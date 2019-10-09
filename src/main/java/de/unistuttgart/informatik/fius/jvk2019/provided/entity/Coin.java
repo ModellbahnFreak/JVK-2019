@@ -13,6 +13,8 @@ import de.unistuttgart.informatik.fius.icge.simulation.entity.BasicEntity;
 import de.unistuttgart.informatik.fius.icge.simulation.entity.CollectableEntity;
 import de.unistuttgart.informatik.fius.jvk2019.Texture;
 
+import java.io.PrintStream;
+
 
 /**
  * Basic coin class.
@@ -29,5 +31,10 @@ public class Coin extends BasicEntity implements CollectableEntity {
     @Override
     protected int getZPosition() {
         return 0;
+    }
+
+    @Override
+    public void serialize(PrintStream printStream) {
+        printStream.print("Coin");
     }
 }

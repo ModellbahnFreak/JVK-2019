@@ -18,6 +18,7 @@ import de.unistuttgart.informatik.fius.jvk2019.provided.exceptions.NeoIsBrokeExc
 import de.unistuttgart.informatik.fius.jvk2019.provided.exceptions.NoCoinException;
 import de.unistuttgart.informatik.fius.jvk2019.provided.exceptions.NoPillException;
 
+import java.io.PrintStream;
 import java.util.List;
 
 
@@ -203,5 +204,10 @@ public class Neo extends Human {
     @InspectionAttribute
     public int getCoinsInWallet() {
         return this.getInventory().get(Coin.class, true).size();
+    }
+
+    @Override
+    public void serialize(PrintStream ps) {
+        ps.print("Neo;" + this.getLookingDirectionString());
     }
 }
