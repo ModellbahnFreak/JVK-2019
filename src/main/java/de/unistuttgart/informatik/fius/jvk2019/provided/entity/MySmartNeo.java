@@ -21,6 +21,11 @@ public class MySmartNeo extends SmartNeo {
         }
     }
 
+    @Override
+    public String toString() {
+        return "MySmart (righthanded) Neo @" + getPosition();
+    }
+
     public boolean checkSideWall() {
         // TODO task 4.1 a) here
         Position pos = this.getPosition();

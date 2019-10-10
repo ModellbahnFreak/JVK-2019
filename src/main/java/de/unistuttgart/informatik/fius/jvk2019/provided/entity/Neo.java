@@ -207,6 +207,11 @@ public class Neo extends Human {
     }
 
     @Override
+    public String toString() {
+        return "Neo @" + getPosition();
+    }
+
+    @Override
     public void serialize(PrintStream ps) {
         ps.print("Neo;" + this.getLookingDirectionString());
     }

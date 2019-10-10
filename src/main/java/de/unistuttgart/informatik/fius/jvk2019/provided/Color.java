@@ -16,5 +16,19 @@ package de.unistuttgart.informatik.fius.jvk2019.provided;
 public enum Color {
     RED,
     BLUE,
-    GREEN
+    GREEN;
+
+
+    @Override
+    public String toString() {
+        switch (this) {
+            case RED:
+                return "Red";
+            case BLUE:
+                return "Blue";
+            case GREEN:
+                return "Green";
+        }
+        return "";
+    }
 }

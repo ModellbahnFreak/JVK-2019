@@ -56,11 +56,11 @@ public class MyNeo extends Neo {
     /**
      * Turns Neo counter clockwise. Operation is to be implemented in MyNeo in Task 2.1.a)
      */
-    public void turnCounterClockwise() {
+    /*public void turnCounterClockwise() {
         this.turnClockWise();
         this.turnClockWise();
         this.turnClockWise();
-    }
+    }*/
 
     /**
      * Command um Neo um 180° zu drehen.
@@ -210,6 +210,15 @@ public class MyNeo extends Neo {
     @Deprecated
     public int getAge() {
         return age;
+    }
+
+    public int coinsOnField() {
+        return getSimulation().getPlayfield().getEntitiesOfTypeAt(this.getPosition(), Coin.class, true).size();
+    }
+
+    @Override
+    public String toString() {
+        return "My Neo @" + getPosition();
     }
 
     @Override

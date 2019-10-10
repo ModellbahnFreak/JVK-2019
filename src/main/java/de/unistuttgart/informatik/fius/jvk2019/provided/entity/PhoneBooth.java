@@ -89,6 +89,15 @@ public class PhoneBooth extends BasicEntity implements SolidEntity {
     }
 
     @Override
+    public String toString() {
+        if (isCurrentlySolid()) {
+            return "Telefon (aufgelegt)";
+        } else {
+            return "Telefon (klingelnd)";
+        }
+    }
+
+    @Override
     public void serialize(PrintStream printStream) {
         printStream.print("Phone");
     }

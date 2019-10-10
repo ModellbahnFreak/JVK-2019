@@ -4,6 +4,11 @@ import de.unistuttgart.informatik.fius.icge.simulation.Direction;
 import de.unistuttgart.informatik.fius.icge.simulation.Position;
 
 public class MySmartLefthandedNeo extends SmartNeo {
+    @Override
+    public String toString() {
+        return "MySmart (lefthanded) Neo @" + getPosition();
+    }
+
     public void moveSmart() {
         if (!this.checkSideWall()) {
             turnCounterClockwise();

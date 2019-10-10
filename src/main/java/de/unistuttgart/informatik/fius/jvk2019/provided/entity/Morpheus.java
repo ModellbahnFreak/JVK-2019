@@ -30,4 +30,9 @@ public class Morpheus extends Human {
     public void serialize(PrintStream printStream) {
         printStream.print("Morpheus;" + this.getLookingDirectionString());
     }
+
+    @Override
+    public String toString() {
+        return "Morpheus @" + getPosition();
+    }
 }

@@ -72,4 +72,9 @@ public class Pill extends BasicEntity implements CollectableEntity{
                 break;
         }
     }
+
+    @Override
+    public String toString() {
+        return color + " Pill";
+    }
 }

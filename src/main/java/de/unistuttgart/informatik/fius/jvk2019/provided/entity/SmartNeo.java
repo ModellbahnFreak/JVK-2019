@@ -6,6 +6,11 @@ public class SmartNeo extends MyNeo {
         // TODO task 4.2 here
     }
 
+    @Override
+    public String toString() {
+        return "Smart (righthanded) Neo @" + getPosition();
+    }
+
     public boolean checkSideWall() {
         // TODO task 4.2 here
         return false;

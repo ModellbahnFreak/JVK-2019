@@ -27,7 +27,12 @@ public class Coin extends BasicEntity implements CollectableEntity {
     protected String getTextureHandle() {
         return Texture.COIN.getHandle();
     }
-    
+
+    @Override
+    public String toString() {
+        return "Coin";
+    }
+
     @Override
     protected int getZPosition() {
         return 0;

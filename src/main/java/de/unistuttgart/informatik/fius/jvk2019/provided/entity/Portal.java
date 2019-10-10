@@ -51,6 +51,11 @@ public class Portal  extends BasicEntity implements CollectableEntity {
     }
 
     @Override
+    public String toString() {
+        return color.toString();
+    }
+
+    @Override
     public void serialize(PrintStream printStream) {
         switch (color) {
             case BLUE:

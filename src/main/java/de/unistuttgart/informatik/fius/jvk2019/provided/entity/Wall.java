@@ -32,6 +32,11 @@ public class Wall extends BasicEntity implements SolidEntity {
     }
 
     @Override
+    public String toString() {
+        return "Wand";
+    }
+
+    @Override
     public void serialize(PrintStream printStream) {
         printStream.print("Wall");
     }
