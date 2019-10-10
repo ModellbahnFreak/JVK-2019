@@ -33,7 +33,9 @@ import de.unistuttgart.informatik.fius.jvk2019.provided.entity.MyNeo;
  * @author Tim-Julian Ehret
  */
 public abstract class Task3_3 extends TaskWithHelperFunctions {
-    
+
+    protected final boolean fiusVariante = true;
+
     /**
      * The spinning neo
      */
@@ -62,41 +64,44 @@ public abstract class Task3_3 extends TaskWithHelperFunctions {
      *     the playfield on which the path is created
      */
     private final void generatePath(final Playfield playfield) {
-        //generate all instances of Pills which have to be collected and store them in the list
-        for (int i = 0; i < 4; i++) {
-            pillsToCollect.add(new Pill(Color.RED));
+
+        if (!fiusVariante) {
+            //generate all instances of Pills which have to be collected and store them in the list
+            for (int i = 0; i < 4; i++) {
+                pillsToCollect.add(new Pill(Color.RED));
+            }
+            //neo will start at (5,5)
+            //coord for placement
+            int x = 5;
+            int y = 5;
+            //first steps
+            x += getRandom();
+            playfield.addEntity(new Position(x, y), pillsToCollect.get(0));
+            //second step
+            y += getRandom();
+            playfield.addEntity(new Position(x, y), pillsToCollect.get(1));
+            //third step
+            x -= getRandom();
+            playfield.addEntity(new Position(x, y), pillsToCollect.get(2));
+            //last step
+            y -= getRandom();
+            playfield.addEntity(new Position(x, y), pillsToCollect.get(3));
+            x += getRandom();
+            playfield.addEntity(new Position(x, y), new PhoneBooth());
+        } else {
+            //first steps
+            playfield.addEntity(new Position(8, 5), new Pill(Color.RED));
+            //second step
+            playfield.addEntity(new Position(8, 8), new Pill(Color.RED));
+            //third step
+            playfield.addEntity(new Position(5, 8), new Pill(Color.RED));
+            playfield.addEntity(new Position(5, 7), new PhoneBooth());
+            this.spawnEntity(new Wall(), 4, 7);
+            this.spawnEntity(new Wall(), 4, 6);
+            this.spawnEntity(new Wall(), 5, 6);
+            this.spawnEntity(new Wall(), 6, 6);
+            this.spawnEntity(new Wall(), 6, 7);
         }
-        //neo will start at (5,5)
-        //coord for placement
-        int x = 5;
-        int y = 5;
-        //first steps
-        x+=getRandom();
-        playfield.addEntity(new Position(x, y), pillsToCollect.get(0));
-        //second step
-        y+=getRandom();
-        playfield.addEntity(new Position(x, y), pillsToCollect.get(1));
-        //third step
-        x-=getRandom();
-        playfield.addEntity(new Position(x, y), pillsToCollect.get(2));
-        //last step
-        y-=getRandom();
-        playfield.addEntity(new Position(x, y), pillsToCollect.get(3));
-        x+=getRandom();
-        playfield.addEntity(new Position(x, y), new PhoneBooth());
-        /*//first steps
-        playfield.addEntity(new Position(8, 5), new Pill(Color.RED));
-        //second step
-        playfield.addEntity(new Position(8, 8), new Pill(Color.RED));
-        //third step
-        playfield.addEntity(new Position(5, 8), new Pill(Color.RED));
-        playfield.addEntity(new Position(5, 7), new PhoneBooth());
-        this.spawnEntity(new Wall(), 4, 7);
-        this.spawnEntity(new Wall(), 4, 6);
-        this.spawnEntity(new Wall(), 5, 6);
-        this.spawnEntity(new Wall(), 6, 6);
-        this.spawnEntity(new Wall(), 6, 7);*/
-        
     }
     
     private int getRandom() {
@@ -116,23 +121,26 @@ public abstract class Task3_3 extends TaskWithHelperFunctions {
     
     @Override
     public boolean verify() {
-        if (!neo.isOnPhoneBooth()) return false;
-        if (neo.getInventory().get(Pill.class, false).size() != pillsToCollect.size()) return false;
+        if (!fiusVariante) {
+            if (!neo.isOnPhoneBooth()) return false;
+            if (neo.getInventory().get(Pill.class, false).size() != pillsToCollect.size()) return false;
 
-        List<EntityCollectAction> collects = this.sim.getActionLog().getActionsOfType(EntityCollectAction.class, false);
-        if (collects.size() != pillsToCollect.size()) return false;
+            List<EntityCollectAction> collects = this.sim.getActionLog().getActionsOfType(EntityCollectAction.class, false);
+            if (collects.size() != pillsToCollect.size()) return false;
 
-        for (EntityCollectAction c : collects) {
-            int pos = pillsToCollect.indexOf(c.getCollectedEntity());
-            if (pos < 0) {
-                return false;
-            } else {
-                pillsToCollect.remove(pos);
+            for (EntityCollectAction c : collects) {
+                int pos = pillsToCollect.indexOf(c.getCollectedEntity());
+                if (pos < 0) {
+                    return false;
+                } else {
+                    pillsToCollect.remove(pos);
+                }
             }
-        }
 
-        return true;
-        //return this.neo.getPosition().equals(new Position(5, 7));
+            return true;
+        } else {
+            return this.neo.getPosition().equals(new Position(5, 7));
+        }
     }
     
 }

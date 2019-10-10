@@ -22,12 +22,22 @@ public class Solution3_3a extends Task3_3 {
 
     @Override
     public final void solve() {
-        while (!neo.isOnPhoneBooth()) {
-            while (!isOnPill() && !neo.isOnPhoneBooth()) {
-                neo.move();
+        if (!fiusVariante) {
+            while (!neo.isOnPhoneBooth()) {
+                while (!isOnPill() && !neo.isOnPhoneBooth()) {
+                    neo.move();
+                }
+                neo.collectOnField();
+                neo.turnClockWise();
             }
-            neo.collectOnField();
-            neo.turnClockWise();
+        } else {
+            while (!neo.isOnPhoneBooth()) {
+                while (!(neo.peakPill() != null && neo.peakPill().getColor() == Color.RED) && !neo.isOnPhoneBooth()) {
+                    neo.move();
+                }
+                neo.collectOnField();
+                neo.turnClockWise();
+            }
         }
     }
 
