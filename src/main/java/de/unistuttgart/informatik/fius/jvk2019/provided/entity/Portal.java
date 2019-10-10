@@ -54,14 +54,14 @@ public class Portal  extends BasicEntity implements CollectableEntity {
     public void serialize(PrintStream printStream) {
         switch (color) {
             case BLUE:
-                printStream.print("Pill;BLUE");
+                printStream.print("Portal;BLUE");
                 break;
             case GREEN:
-                printStream.print("Pill;GREEN");
+                printStream.print("Portal;GREEN");
                 break;
             case RED:
             default:
-                printStream.print("Pill;RED");
+                printStream.print("Portal;RED");
                 break;
         }
     }

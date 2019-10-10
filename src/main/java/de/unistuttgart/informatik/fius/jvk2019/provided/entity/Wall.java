@@ -12,6 +12,8 @@ import de.unistuttgart.informatik.fius.icge.simulation.entity.BasicEntity;
 import de.unistuttgart.informatik.fius.icge.simulation.entity.SolidEntity;
 import de.unistuttgart.informatik.fius.jvk2019.Texture;
 
+import java.io.PrintStream;
+
 /**
  * The wall entity
  * 
@@ -29,4 +31,8 @@ public class Wall extends BasicEntity implements SolidEntity {
         return 0;
     }
 
+    @Override
+    public void serialize(PrintStream printStream) {
+        printStream.print("Wall");
+    }
 }

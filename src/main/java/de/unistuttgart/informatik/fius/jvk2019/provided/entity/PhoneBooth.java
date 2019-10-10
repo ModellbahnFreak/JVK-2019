@@ -9,6 +9,7 @@
  */
 package de.unistuttgart.informatik.fius.jvk2019.provided.entity;
 
+import java.io.PrintStream;
 import java.util.function.Supplier;
 
 import de.unistuttgart.informatik.fius.icge.simulation.entity.*;
@@ -86,5 +87,9 @@ public class PhoneBooth extends BasicEntity implements SolidEntity {
     protected int getZPosition() {
         return 1;
     }
-    
+
+    @Override
+    public void serialize(PrintStream printStream) {
+        printStream.print("Phone");
+    }
 }
