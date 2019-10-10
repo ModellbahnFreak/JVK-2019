@@ -33,8 +33,11 @@ public class Main {
      * @param args
      *     the command line args; not used
      */
+
+    public static SimulationHost host;
+
     public static void main(String[] args) {
-        SimulationHost host = SimulationHostFactory.createSimulationHost();
+        host = SimulationHostFactory.createSimulationHost();
         prepareTextures(host.getTextureRegistry());
         prepareEntityTypes(host.getEntityTypeRegistry());
         prepareTasks(host.getTaskRegistry());
@@ -77,6 +80,7 @@ public class Main {
         tr.registerTask("Task3_3 (b)", new Solution3_3b());
         tr.registerTask("Task3_4", new Solution3_4());
         tr.registerTask("Task3_5", new Solution3_5());
+        tr.registerTask("Task4_1", new Solution4_2());
         tr.registerTask("Task4_2", new Solution4_2());
         tr.registerTask("Task4_3", new Solution4_3());
         tr.registerTask("Task4_4", new Solution4_4());
