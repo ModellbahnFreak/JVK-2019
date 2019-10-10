@@ -14,13 +14,25 @@ import de.unistuttgart.informatik.fius.jvk2019.provided.entity.MyNeoProgram;
 
 
 /**
- * // TODO (see Solution4_4)
+ *
  */
 public class LogicProgram extends MyNeoProgram {
     
     @Override
-    public void run(final MyNeo entity) {
-        // TODO implement logic here
+    public void run(final MyNeo neo) {
+        boolean[] val = new boolean[4];
+        for (int i = 0; i < 4; i++) {
+            neo.move();
+            val[i] = neo.coinsOnField() > 0;
+        }
+        neo.move();
+        neo.move();
+        if ((val[0] && val[1]) || ((!val[3]) && val[3] || val[1])) {
+            neo.dropCoin();
+        }
+        while ((neo.canMove())) {
+            neo.move();
+        }
     }
     
 }
