@@ -65,12 +65,11 @@ public abstract class Task3_2 extends TaskWithHelperFunctions {
 
     @Override
     public boolean verify() {
-        boolean hasReached = true;
-		if(!(this.myNeo.getPosition().equals(new Position(15,1)) && this.boothsDestroyed)) {
+
+		if(this.myNeo.getPosition().equals(new Position(15,1)) || this.boothsDestroyed) {
             return false;
         }
 		if (!myNeo.isOnPhoneBooth()) return false;
-		
         //NEO Spawns with looking direction EAST
         turnLeft();
         if(this.myNeo.getLookingDirection() != Direction.NORTH) return false;
